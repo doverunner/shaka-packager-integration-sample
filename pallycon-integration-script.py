@@ -24,7 +24,7 @@ KMS_URL = "https://kms.pallycon.com/v2/cpix/pallycon/getKey/"
 
 class CustomArgumentParser(argparse.ArgumentParser):
     def format_usage(self):
-        return "usage: %(prog)s [options] [GPAC options]\n\n" % {'prog': self.prog}
+        return "usage: %(prog)s [options] [Shaka options]\n\n" % {'prog': self.prog}
 
     def format_help(self):
         help_text = super().format_help()
