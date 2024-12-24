@@ -22,8 +22,26 @@ FAIRPLAY_PSSH = "00000020707373680000000029701FE43CC74A348C5BAE90C7439A470000000
 KMS_URL = "https://kms.pallycon.com/v2/cpix/pallycon/getKey/"
 
 
+class CustomArgumentParser(argparse.ArgumentParser):
+    def format_usage(self):
+        return "usage: %(prog)s [options] [Shaka options]\n\n" % {'prog': self.prog}
+
+    def format_help(self):
+        help_text = super().format_help()
+        usage_line = self.format_usage()
+
+        description_start = help_text.find(self.description)
+        if description_start != -1:
+            # Replace everything before the description with the custom usage line
+            modified_help = usage_line + help_text[description_start:]
+        else:
+            modified_help = help_text.replace(help_text.split('\n')[0], usage_line.strip())
+
+        return modified_help
+
+
 def parse_arguments():
-    parser = argparse.ArgumentParser(description="Sample script for integrating PallyCon CPIX with Shaka packager")
+    parser = CustomArgumentParser(description="Sample script for integrating PallyCon CPIX with Shaka packager")
     parser.add_argument("--enc_token", required=True,
                         help="KMS token used for CPIX API communication with PallyCon KMS")
     parser.add_argument("--content_id", required=True, help="Content ID")
