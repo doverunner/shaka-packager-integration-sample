@@ -1,11 +1,11 @@
 # Shaka Packager Integration Sample
-Python sample script for DRM packaging integration using Shaka Packager and PallyCon CPIX client
+Python sample script for DRM packaging integration using Shaka Packager and DoveRunner CPIX client
 
 
 
 ## Overview
 
-This script facilitates the process of encrypting media content using various DRM systems (Widevine, PlayReady, FairPlay) by leveraging PallyCon's key management service and Shaka Packager's encryption capabilities.
+This script facilitates the process of encrypting media content using various DRM systems (Widevine, PlayReady, FairPlay) by leveraging DoveRunner's key management service and Shaka Packager's encryption capabilities.
 
 
 
@@ -13,7 +13,7 @@ This script facilitates the process of encrypting media content using various DR
 
 - Python 3.6+
 
-- PallyCon CPIX API client module (download project from [github](https://github.com/inka-pallycon/pallycon-cpix-api-client))
+- DoveRunner CPIX API client module (download project from [github](https://github.com/doverunner/pallycon-cpix-api-client))
 
 - Shaka Packager (download binary from [github](https://github.com/shaka-project/shaka-packager/releases/tag/v3.2.0))
 
@@ -23,12 +23,12 @@ This script facilitates the process of encrypting media content using various DR
 ## Installation
 
 1. Clone this repository:
-   - `git clone https://github.com/inka-pallycon/shaka-packager-integration-sample`
+   - `git clone https://github.com/doverunner/shaka-packager-integration-sample`
 
 2. Navigate to the project directory:
 
-3. Clone the PallyCon CPIX API client project to the same path as the script.
-   - `git clone https://github.com/inka-pallycon/pallycon-cpix-api-client.git`
+3. Clone the DoveRunner CPIX API client project to the same path as the script.
+   - `git clone https://github.com/doverunner/doverunner-cpix-api-client.git`
 
 
 4. Download and place the Shaka Packager executable binary in the same directory as the script.
@@ -44,7 +44,7 @@ Run the script with the following command-line arguments:
 
 ### Required Arguments:
 
-- `--enc_token`: KMS token for CPIX API communication with PallyCon KMS
+- `--enc_token`: KMS token for CPIX API communication with DoveRunner KMS
 - `--content_id`: Content ID
 - `--drm_type`: DRM Type(s) separated by comma (widevine, playready, fairplay)
 
@@ -67,7 +67,7 @@ All arguments except the ones above will be passed directly to Shaka Packager.
 
 ## Notes
 
-- The script will retrieve key information from PallyCon's KMS using the provided token and content ID.
+- The script will retrieve key information from DoveRunner's KMS using the provided token and content ID.
 - It will then use these keys to construct a Shaka Packager command for content encryption.
 - The encrypted content will be output according to the Shaka Packager arguments provided.
 
@@ -75,6 +75,6 @@ All arguments except the ones above will be passed directly to Shaka Packager.
 
 ## References
 
-- https://pallycon.com/docs/en/multidrm/packaging/cpix-api/
-- https://github.com/inka-pallycon/pallycon-cpix-api-client
+- https://doverunner.com/docs/en/multidrm/packaging/cpix-api/
+- https://github.com/doverunner/doverunner-cpix-api-client
 - https://github.com/shaka-project/shaka-packager
