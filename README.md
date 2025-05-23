@@ -13,7 +13,7 @@ This script facilitates the process of encrypting media content using various DR
 
 - Python 3.6+
 
-- DoveRunner CPIX API client module (download project from [github](https://github.com/doverunner/pallycon-cpix-api-client))
+- DoveRunner CPIX API client module (download project from [github](https://github.com/doverunner/cpix-api-client))
 
 - Shaka Packager (download binary from [github](https://github.com/shaka-project/shaka-packager/releases/tag/v3.2.0))
 
@@ -40,7 +40,7 @@ This script facilitates the process of encrypting media content using various DR
 
 Run the script with the following command-line arguments:
 
-`python3 pallycon-integration-script.py --enc_token <your enc-token> --content_id <content id> --drm_type <drm types> [options] [shaka_packager_args]`
+`python3 doverunner-integration-script.py --enc_token <your enc-token> --content_id <content id> --drm_type <drm types> [options] [shaka_packager_args]`
 
 ### Required Arguments:
 
@@ -61,7 +61,7 @@ All arguments except the ones above will be passed directly to Shaka Packager.
 
 ## Example
 
-`python3 pallycon-integration-script.py --enc_token your-enc-token --content_id movie123 --drm_type widevine,playready 'in=h264_720p.mp4,stream=video,init_segment=output/video/init.mp4,segment_template=output/video/$Number$.m4s' 'in=h264_720p.mp4,stream=audio,init_segment=output/audio/init.mp4,segment_template=output/audio/$Number$.m4s' --generate_static_live_mpd --mpd_output output/stream.mpd --clear_lead 0 `
+`python3 doverunner-integration-script.py --enc_token your-enc-token --content_id movie123 --drm_type widevine,playready 'in=h264_720p.mp4,stream=video,init_segment=output/video/init.mp4,segment_template=output/video/$Number$.m4s' 'in=h264_720p.mp4,stream=audio,init_segment=output/audio/init.mp4,segment_template=output/audio/$Number$.m4s' --generate_static_live_mpd --mpd_output output/stream.mpd --clear_lead 0 `
 
 
 
@@ -76,5 +76,5 @@ All arguments except the ones above will be passed directly to Shaka Packager.
 ## References
 
 - https://doverunner.com/docs/en/multidrm/packaging/cpix-api/
-- https://github.com/doverunner/doverunner-cpix-api-client
+- https://github.com/doverunner/cpix-api-client
 - https://github.com/shaka-project/shaka-packager
