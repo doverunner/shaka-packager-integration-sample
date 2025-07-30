@@ -18,7 +18,7 @@ from encryption_scheme import EncryptionScheme
 from track_type import TrackType
 
 FAIRPLAY_PSSH = "00000020707373680000000029701FE43CC74A348C5BAE90C7439A4700000000"
-# Doverunner KMS URL
+# DoveRunner KMS URL
 KMS_URL = "https://drm-kms.doverunner.com/v2/cpix/pallycon/getKey/"
 
 
@@ -41,7 +41,7 @@ class CustomArgumentParser(argparse.ArgumentParser):
 
 
 def parse_arguments():
-    parser = CustomArgumentParser(description="Sample script for integrating Doverunner CPIX with Shaka packager")
+    parser = CustomArgumentParser(description="Sample script for integrating DoveRunner CPIX with Shaka packager")
     parser.add_argument("--enc_token", required=True,
                         help="KMS token used for CPIX API communication with KMS")
     parser.add_argument("--content_id", required=True, help="Content ID")
@@ -56,7 +56,7 @@ def parse_arguments():
         parser.print_help(sys.stderr)
         sys.exit(1)
 
-    # Parse args for Doverunner first
+    # Parse args for DoveRunner first
     args, remaining = parser.parse_known_args()
 
     # Add args for Shaka packager to shaka_args
