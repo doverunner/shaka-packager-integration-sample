@@ -75,6 +75,6 @@ All arguments except the ones above will be passed directly to Shaka Packager.
 
 ## References
 
-- https://doverunner.com/docs/en/multidrm/packaging/cpix-api/
+- https://docs.doverunner.com/content-security/multi-drm/packaging/cpix-api/
 - https://github.com/doverunner/cpix-api-client
 - https://github.com/shaka-project/shaka-packager
