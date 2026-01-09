@@ -5,9 +5,9 @@ import argparse
 import base64
 import shlex
 
-# Add the path of pallycon-cpix-api-client to sys.path
+# Add the path of cpix-api-client to sys.path
 current_dir = os.path.dirname(os.path.abspath(__file__))
-client_path = os.path.join(current_dir, 'pallycon-cpix-api-client', 'python', 'src')
+client_path = os.path.join(current_dir, 'cpix-api-client', 'python', 'src')
 sys.path.append(client_path)
 
 PACKAGER_BIN = 'packager-win-x64.exe'
@@ -18,8 +18,8 @@ from encryption_scheme import EncryptionScheme
 from track_type import TrackType
 
 FAIRPLAY_PSSH = "00000020707373680000000029701FE43CC74A348C5BAE90C7439A4700000000"
-# PallyCon KMS URL
-KMS_URL = "https://kms.pallycon.com/v2/cpix/pallycon/getKey/"
+# DoveRunner KMS URL
+KMS_URL = "https://drm-kms.doverunner.com/v2/cpix/pallycon/getKey/"
 
 
 class CustomArgumentParser(argparse.ArgumentParser):
@@ -41,9 +41,9 @@ class CustomArgumentParser(argparse.ArgumentParser):
 
 
 def parse_arguments():
-    parser = CustomArgumentParser(description="Sample script for integrating PallyCon CPIX with Shaka packager")
+    parser = CustomArgumentParser(description="Sample script for integrating DoveRunner CPIX with Shaka packager")
     parser.add_argument("--enc_token", required=True,
-                        help="KMS token used for CPIX API communication with PallyCon KMS")
+                        help="KMS token used for CPIX API communication with KMS")
     parser.add_argument("--content_id", required=True, help="Content ID")
     parser.add_argument("--drm_type", required=True,
                         help="DRM Type(s) separated by comma. Options: widevine, playready, fairplay")
@@ -56,7 +56,7 @@ def parse_arguments():
         parser.print_help(sys.stderr)
         sys.exit(1)
 
-    # Parse args for PallyCon first
+    # Parse args for DoveRunner first
     args, remaining = parser.parse_known_args()
 
     # Add args for Shaka packager to shaka_args
@@ -91,7 +91,7 @@ def get_key_info(enc_token, content_id, drm_types, encryption_scheme, track_type
         if TrackType.ALL_TRACKS in track_types:
             track_types = TrackType.ALL_TRACKS  # single key
 
-        content_key_info = client.get_content_key_info_from_pallycon_kms(
+        content_key_info = client.get_content_key_info_from_doverunner_kms(
             content_id,
             drm_types,
             encryption_scheme,
