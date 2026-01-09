@@ -28,7 +28,7 @@ This script facilitates the process of encrypting media content using various DR
 2. Navigate to the project directory:
 
 3. Clone the DoveRunner CPIX API client project to the same path as the script.
-   - `git clone https://github.com/doverunner/doverunner-cpix-api-client.git`
+   - `git clone https://github.com/doverunner/cpix-api-client.git`
 
 
 4. Download and place the Shaka Packager executable binary in the same directory as the script.
